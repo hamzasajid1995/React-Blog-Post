@@ -1,0 +1,73 @@
+.container {
+  padding: 1rem;
+  width: 100%;
+}
+
+.form_card {
+  padding: 1rem;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background-color: white;
+  max-width: 600px;
+  width: 100%;
+}
+
+.control {
+  margin-bottom: 0.5rem;
+}
+
+.control label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.control input,
+.control textarea {
+  font: inherit;
+  padding: 0.35rem;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  border: 1px solid #c1d1d1;
+  display: block;
+  width: 100%;
+  font-size: 1.25rem;
+}
+
+.control input:focus,
+.control textarea:focus {
+  background-color: #cbf8f8;
+  outline-color: teal;
+}
+
+.actions {
+  text-align: right;
+}
+
+.actions button {
+  font-size: 1.25rem;
+}
+
+/* HIDE RADIO */
+.form_card [type='radio'] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+.form_card [type='radio'] + img {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+.form_card [type='radio']:checked + img {
+  outline: 3px solid teal;
+}
+
+.radio_image {
+  max-width: 100px;
+  margin: 1rem 1rem 0 0;
+}

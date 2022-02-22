@@ -1,5 +1,7 @@
+import PostForm from 'components/posts/PostForm';
+
 function NewPost() {
-  return <h1>NewPosts</h1>;
+  return <PostForm />;
 }
 
 export default NewPost;

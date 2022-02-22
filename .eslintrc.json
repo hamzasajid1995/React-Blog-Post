@@ -19,7 +19,11 @@
     "react/function-component-definition": "off",
     "no-unused-vars": "warn",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": "off",
+    "jsx-a11y/label-has-associated-control": "warn",
+    "no-plusplus": "warn",
+    "import/prefer-default-export": "warn"
   },
   "settings": {
     "import/resolver": {
