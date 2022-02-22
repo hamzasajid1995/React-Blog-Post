@@ -1,31 +1,28 @@
 import { useCallback, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addPost } from 'store/postSlice';
 import { generateKey } from 'utils';
 import classes from './PostForm.module.css';
 
-function PostForm() {
-  const [images, setImages] = useState([]);
+const images = [{ id: 1 }, { id: 2 }, { id: 3 }];
 
+function PostForm() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [image, setImage] = useState('');
+  const [selectedImage, setSelectedImage] = useState('');
 
-  useEffect(() => {
-    fetch('https://picsum.photos/v2/list?limit=3')
-      .then(res => res.json())
-      .then(res => {
-        setImages(res);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }, []);
+  const dispatch = useDispatch();
 
   const submitFormHandler = useCallback(
     event => {
       event.preventDefault();
-      console.log({ id: generateKey(title), title, content, image });
+      dispatch(addPost({ id: generateKey(title), title, content, image: selectedImage })).then(() => {
+        setSelectedImage('');
+        setContent('');
+        setTitle('');
+      });
     },
-    [title, content, image]
+    [title, content, selectedImage, dispatch]
   );
 
   return (
@@ -41,6 +38,7 @@ function PostForm() {
               onChange={event => {
                 setTitle(event.target.value);
               }}
+              required
             />
           </div>
 
@@ -53,24 +51,12 @@ function PostForm() {
               onChange={event => {
                 setContent(event.target.value);
               }}
+              required
             />
           </div>
 
           {images.map(item => (
-            <label key={item.id}>
-              <input
-                type='radio'
-                name='test'
-                value='small'
-                onChange={event => {
-                  if (event.target.checked) {
-                    setImage(item.download_url);
-                  }
-                }}
-                checked={item.download_url === image}
-              />
-              <img src={item.download_url} alt={item.author} className={classes.radio_image} />
-            </label>
+            <ImageOption key={item.id} item={item} setSelectedImage={setSelectedImage} selectedImage={selectedImage} />
           ))}
 
           <div className={classes.actions}>
@@ -81,6 +67,40 @@ function PostForm() {
         </form>
       </div>
     </div>
+  );
+}
+
+function ImageOption({ item, setSelectedImage, selectedImage }) {
+  const [image, setImage] = useState('');
+
+  useEffect(() => {
+    fetch(`https://picsum.photos/200?random=${item.id}`).then(res => {
+      setImage(res.url);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (item.id === 1) {
+      setSelectedImage(image);
+    }
+  }, [image]);
+
+  return (
+    <label>
+      <input
+        required
+        type='radio'
+        name='test'
+        value='small'
+        checked={image === selectedImage}
+        onChange={event => {
+          if (event.target.checked) {
+            setSelectedImage(image);
+          }
+        }}
+      />
+      <img src={image} alt={item.id} className={classes.radio_image} />
+    </label>
   );
 }
 
