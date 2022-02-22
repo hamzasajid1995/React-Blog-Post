@@ -6,6 +6,9 @@
   justify-content: space-between;
   align-items: center;
   background-color: #008080;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
 }
 
 .logo {
