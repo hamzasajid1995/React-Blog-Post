@@ -61,7 +61,7 @@ function PostForm() {
 
           <div className={classes.actions}>
             <button type='submit' className='btn'>
-              Add Post
+              Save
             </button>
           </div>
         </form>
