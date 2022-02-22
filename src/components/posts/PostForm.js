@@ -74,16 +74,16 @@ function ImageOption({ item, setSelectedImage, selectedImage }) {
   const [image, setImage] = useState('');
 
   useEffect(() => {
-    fetch(`https://picsum.photos/200?random=${item.id}`).then(res => {
+    fetch(`https://picsum.photos/720?random=${item.id}`).then(res => {
       setImage(res.url);
     });
-  }, []);
+  }, [item.id]);
 
   useEffect(() => {
     if (item.id === 1) {
       setSelectedImage(image);
     }
-  }, [image]);
+  }, [image, item.id, setSelectedImage]);
 
   return (
     <label>
@@ -99,7 +99,7 @@ function ImageOption({ item, setSelectedImage, selectedImage }) {
           }
         }}
       />
-      <img src={image} alt={item.id} className={classes.radio_image} />
+      <img src={image} alt={item.id} className={classes.radio_image} loading='lazy' />
     </label>
   );
 }

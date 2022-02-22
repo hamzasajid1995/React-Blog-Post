@@ -1,9 +1,11 @@
-function PostDetails({ id }) {
+import classes from './PostDetails.module.css';
+
+function PostDetails({ post }) {
   return (
-    <div>
-      <h1>Title {id}</h1>
-      <p>amdskmda </p>
-      <img src='' alt='title' />
+    <div className={classes.container}>
+      <h1>{post.title} </h1>
+      <p>{post.content} </p>
+      <img src={post.image} alt={post.title} className={classes.image} loading='lazy' />
     </div>
   );
 }
