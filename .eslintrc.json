@@ -23,7 +23,8 @@
     "react/prop-types": "off",
     "jsx-a11y/label-has-associated-control": "warn",
     "no-plusplus": "warn",
-    "import/prefer-default-export": "warn"
+    "import/prefer-default-export": "warn",
+    "no-param-reassign": "off"
   },
   "settings": {
     "import/resolver": {
