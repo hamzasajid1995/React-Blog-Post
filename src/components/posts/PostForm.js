@@ -54,11 +54,16 @@ function PostForm() {
               required
             />
           </div>
-
-          {images.map(item => (
-            <ImageOption key={item.id} item={item} setSelectedImage={setSelectedImage} selectedImage={selectedImage} />
-          ))}
-
+          <div style={{ display: 'flex' }}>
+            {images.map(item => (
+              <ImageOption
+                key={item.id}
+                item={item}
+                setSelectedImage={setSelectedImage}
+                selectedImage={selectedImage}
+              />
+            ))}
+          </div>
           <div className={classes.actions}>
             <button type='submit' className='btn'>
               Save
@@ -98,6 +103,8 @@ function ImageOption({ item, setSelectedImage, selectedImage }) {
             setSelectedImage(image);
           }
         }}
+        width={720}
+        height={720}
       />
       <img src={image} alt={item.id} className={classes.radio_image} loading='lazy' />
     </label>
