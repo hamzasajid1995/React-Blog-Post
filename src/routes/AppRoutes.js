@@ -1,11 +1,17 @@
 import React from 'react';
 
 import { Routes, Route, Navigate } from 'react-router-dom';
+
 import Layout from 'components/Layout';
 
-const NewPost = React.lazy(import('pages/NewPost'));
-const Posts = React.lazy('pages/Posts');
-const Post = React.lazy('pages/Post');
+// const NewPost = React.lazy(import('pages/NewPost'));
+// const Posts = React.lazy(import('pages/Posts'));
+// const Post = React.lazy(import('pages/Post'));
+// INFO: React.Lazy is not working hashrouter
+
+import NewPost from 'pages/NewPost';
+import Posts from 'pages/Posts';
+import Post from 'pages/Post';
 
 function AppRoutes() {
   return (

@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 // import { BrowserRouter as Router } from 'react-router-dom';
 import { HashRouter as Router } from 'react-router-dom';
+// INFO: HashRouter is used only to deploy app on github pages. On real server use BrowserRouter
+
 import { Provider } from 'react-redux';
 import store from 'store/store';
 import './index.css';
