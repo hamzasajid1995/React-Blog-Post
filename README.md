@@ -32,6 +32,10 @@ A React based Mini Content Management System where user can browse posts, view p
 * [Prettier](https://prettier.io/)
 * [Eslint](https://eslint.org/)
 
+### Demo
+
+* [App Demo](https://hamzasajid1995.github.io/blog-post/)
+
 <!-- GETTING STARTED -->
 ## Getting Started
 
