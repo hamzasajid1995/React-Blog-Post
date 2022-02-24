@@ -71,7 +71,7 @@ To get a local copy up and running follow these simple example steps.
 ## Info
 
 1. For routing I'm using <b>react router v6</b>. There is a Layout, which has a navbar and an Outlet for all the nested routes. When deploying to a server we'll use <b>BrowserRouter</b> but for now I'm using <b>HashRouter</b> because app is deployed on <b>Github pages</b> and i can't customize server configs to support BrowserRouter.
-2. For State management I'm using <b>react-redux</b> with <b>redux-toolkit</b>. I have also added <b>AsyncThunk</b> and <b>EntityAdapter</b>
+2. For State management I'm using <b>react-redux</b> with **redux-toolkit**. I have also added **AsyncThunk** and **EntityAdapter**. The state is also Persited in browser **LocalStorage**
 
 
 ## Write HTML
