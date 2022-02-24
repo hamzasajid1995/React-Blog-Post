@@ -17,6 +17,7 @@ function PostForm() {
     event => {
       event.preventDefault();
       dispatch(addPost({ id: generateKey(title), title, content, image: selectedImage })).then(() => {
+        alert('New Post Added');
         setSelectedImage('');
         setContent('');
         setTitle('');

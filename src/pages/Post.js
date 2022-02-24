@@ -9,6 +9,8 @@ function Post() {
   const { postId } = params;
   const post = useSelector(state => postSelectors.selectById(state, postId));
 
+  if (!post) return <h3 style={{ textAlign: 'center', margin: '3rem' }}>Post not Found!</h3>;
+
   return <PostDetails post={post} />;
 }
 

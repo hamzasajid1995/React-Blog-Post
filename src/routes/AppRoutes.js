@@ -21,6 +21,7 @@ function AppRoutes() {
         <Route path='/new-post' element={<NewPost />} />
         <Route path='/posts' element={<Posts />} />
         <Route path='/posts/:postId' element={<Post />} />
+        <Route path='*' element={<Navigate replace to='/posts' />} />
       </Route>
     </Routes>
   );
