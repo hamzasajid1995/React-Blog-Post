@@ -7,9 +7,25 @@ function Pagination({ totalPosts, postsPerPage, currentPage, setCurrentPage, set
     pageNumbers.push(i);
   }
 
+  const minPage = pageNumbers[0];
+  const maxPage = pageNumbers[pageNumbers.length - 1];
+
   return (
     <>
       <ul className={classes.pagination}>
+        <li className={classes.page_item}>
+          <button
+            className={classes.page_link}
+            onClick={() => {
+              if (currentPage > minPage) {
+                setCurrentPage(currentPage - 1);
+              }
+            }}
+            type='button'
+          >
+            &lt;
+          </button>
+        </li>
         {pageNumbers.map(item => (
           <li key={item} className={`${classes.page_item} ${currentPage === item ? classes.active : ''}`}>
             <button
@@ -23,6 +39,19 @@ function Pagination({ totalPosts, postsPerPage, currentPage, setCurrentPage, set
             </button>
           </li>
         ))}
+        <li className={classes.page_item}>
+          <button
+            className={classes.page_link}
+            onClick={() => {
+              if (currentPage < maxPage) {
+                setCurrentPage(currentPage + 1);
+              }
+            }}
+            type='button'
+          >
+            &gt;
+          </button>
+        </li>
       </ul>
       <div style={{ margin: '1rem auto', textAlign: 'center' }}>
         <label htmlFor='postsCount'>Posts per page </label>
