@@ -1,4 +1,3 @@
-// Pass in Redux store's state to save it to the user's browser local storage
 export const saveState = state => {
   console.log('saveState');
   try {
@@ -9,8 +8,6 @@ export const saveState = state => {
   }
 };
 
-// Loads the state and returns an object that can be provided as the
-// preloadedState parameter of store.js's call to configureStore
 export const loadState = () => {
   console.log('loadState');
 
