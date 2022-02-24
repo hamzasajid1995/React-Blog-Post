@@ -92,23 +92,25 @@ function ImageOption({ item, setSelectedImage, selectedImage }) {
   }, [image, item.id, setSelectedImage]);
 
   return (
-    <label>
-      <input
-        required
-        type='radio'
-        name='test'
-        value='small'
-        checked={image === selectedImage}
-        onChange={event => {
-          if (event.target.checked) {
-            setSelectedImage(image);
-          }
-        }}
-        width={720}
-        height={720}
-      />
-      <img src={image} alt={item.id} className={classes.radio_image} loading='lazy' />
-    </label>
+    <div className={classes.radio_container}>
+      <label>
+        <input
+          required
+          type='radio'
+          name='test'
+          value='small'
+          checked={image === selectedImage}
+          onChange={event => {
+            if (event.target.checked) {
+              setSelectedImage(image);
+            }
+          }}
+          width={720}
+          height={720}
+        />
+        <img src={image} alt={item.id} className={classes.radio_image} loading='lazy' />
+      </label>
+    </div>
   );
 }
 

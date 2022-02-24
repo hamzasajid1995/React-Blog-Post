@@ -18,7 +18,9 @@
 .item_img {
   margin: 0 auto;
   height: 100px;
+  min-height: 100px;
   object-fit: contain;
+  background-color: #ccc;
 }
 .content {
   line-height: 1.5em;
