@@ -1,11 +1,16 @@
+import { useMemo } from 'react';
 import classes from './Pagination.module.css';
 
-function Pagination({ totalPosts, postsPerPage, currentPage, setCurrentPage, setPostPerPage }) {
+function computePageNumbers(totalPosts, postsPerPage) {
   const pageNumbers = [];
-
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); ++i) {
     pageNumbers.push(i);
   }
+  return pageNumbers;
+}
+
+function Pagination({ totalPosts, postsPerPage, currentPage, setCurrentPage, setPostPerPage }) {
+  const pageNumbers = useMemo(() => computePageNumbers(totalPosts, postsPerPage), [totalPosts, postsPerPage]);
 
   const minPage = pageNumbers[0];
   const maxPage = pageNumbers[pageNumbers.length - 1];
